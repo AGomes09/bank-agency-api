@@ -1,10 +1,9 @@
-// routes/categorias.js
+// routes/bancos.js
 const express = require("express");
 const router = express.Router();
 const pool = require("../db");
 
 router.get("/", async (req, res) => {
-  // Eu fiz
   try {
     const [ban] = await pool.query("SELECT * FROM bancos");
 
@@ -18,12 +17,11 @@ router.get("/", async (req, res) => {
   }
 });
 
-// GET /api/categorias/:id
+// GET /api/bancos/:id
 router.get("/:id", async (req, res) => {
   try {
     const { id } = req.params;
 
-    // 1) Busca a categoria pelo ID
     const [ban] = await pool.query("SELECT * FROM bancos WHERE id = ?", [id]);
 
     if (ban.length === 0) {
@@ -32,13 +30,10 @@ router.get("/:id", async (req, res) => {
 
     const bancos = ban[0];
 
-    // 2) Busca os produtos dessa categoria (lado N)
     const [agencias] = await pool.query(
       "SELECT * FROM agencias WHERE banco_id = ?",
       [id],
     );
-
-    // 3) Monta resposta aninhada e retorna
 
     bancos.agencias = agencias;
     res.json(bancos);
