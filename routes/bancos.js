@@ -53,7 +53,7 @@ router.post("/", async (req, res) => {
     const { nome } = req.body;
 
     if (!nome) {
-      res.status(400).json({ erro: "Dados inválidos ou Campos ausentes" });
+      res.status(400).json({ erro: "Dados inválidos ou Campos ausentes!" });
     }
 
     const resultado = await pool.query(

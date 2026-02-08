@@ -17,7 +17,7 @@ app.use("/api/agencias", agenciasRoutes);
 
 // Rota raiz — teste rápido para confirmar que o servidor está rodando
 app.get("/", (req, res) => {
-  res.json({ status: "API rodando!" });
+  res.json({ status: "API rodando!!!" });
 });
 
 app.listen(PORT, () => {
