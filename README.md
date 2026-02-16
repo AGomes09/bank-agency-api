@@ -41,21 +41,15 @@ O sistema permite cadastrar, listar e manipular dados garantindo a consistência
 
 1️⃣ Clone o repositório
 ```
-
 git clone https://github.com/AGomes09/bank-agency-api.git
-
 ```
 
 2️⃣ Acesse a pasta do projeto
 ```
-
 cd bank-agency-api
-
 ```
 
 3️⃣ Instale as dependências
 ```
-
 npm install
-
 ```
