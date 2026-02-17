@@ -5,14 +5,16 @@ const pool = require("../db");
 
 router.get("/", async (req, res) => {
   try {
-    const [ban] = await pool.query("SELECT * FROM bancos");
+    const [ban] = await pool.query(
+      "SELECT b.id, b.nome, a.id, a.numero, a.clientes, a.localidade, a.estado, a.banco_id FROM bancos AS b join agencias AS a ON b.id = a.banco_id ORDER BY b.id",
+    );
 
     if (ban.length === 0) {
       return res.status(404).json({ erro: "Recurso não encontrado" });
     }
 
     res.json(ban);
-  } catch (error) {
+  } catch (err) {
     res.status(500).json({ erro: err.message });
   }
 });

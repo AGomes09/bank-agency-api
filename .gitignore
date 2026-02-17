@@ -31,3 +31,6 @@ dist-ssr
 
 # TypeScript
 *.tsbuildinfo
+
+*.zip
+*.mkv
